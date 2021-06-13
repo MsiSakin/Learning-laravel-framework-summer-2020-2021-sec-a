@@ -11,11 +11,13 @@ class LoginController extends Controller
     }
 
     public function varify(Request $req){
-       if($req->uname == $req->password){
+      if($req->uname == $req->password){
+        $req ->session()->put('uname',$req->uname);
            return redirect('/home');
        }
        else{
            echo "Invalid!!!";
        }
+      
     }
 }
